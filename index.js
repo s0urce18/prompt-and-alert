@@ -14,7 +14,7 @@ function readLine(sep = "") { // function for reading line with separating by se
     let s = "", char, c, end = "\r\n";
     while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) != -1); // moving reading start to firtst not \r or \n  char
     if (c != -1) s = char; // firtst char
-    while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) == -1) {
+    while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) == -1) { // reading chars while end char isn't found
         s += char; // adding chars in one string while they aren't run out
     }
     return sep != "" ? s.split(sep) : s; // if sep != empty string return s separated by sep else return s
