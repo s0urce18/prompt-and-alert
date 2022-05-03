@@ -29,3 +29,5 @@ function prompt(msg = "") {
     alert(msg, true); // writing message
     return readLine(); // reading line
 }
+
+module.exports = {getChar, readLine, alert, prompt};
