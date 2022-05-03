@@ -5,7 +5,7 @@ const decoder = new StringDecoder('utf8'); // creating object StringDecoder
 
 function getChar() { // function for getting read character's code
     const buf = new Buffer.alloc(1, 0, 'utf8'); // creating object Buffer
-    let bytesRead = fs.readSync(fd, buf, 0, 1); // reading adn saving length of read bytes
+    let bytesRead = fs.readSync(fd, buf, 0, 1); // reading and saving length of read bytes
     if (bytesRead > 0) return decoder.write(buf).charCodeAt(0); // checking is the char read and return it's code in positive way
     return -1; // return if char isn't read
 }
