@@ -4,5 +4,6 @@
     "author": "_s0urce_",
     "license": "MIT",
     "description": "Prompt and alert functions",
-    "homepage": "https://github.com/s0urce18/prompt-and-alert"
+    "homepage": "https://github.com/s0urce18/prompt-and-alert",
+    "type": "module"
 }
