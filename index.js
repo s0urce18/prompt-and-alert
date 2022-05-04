@@ -40,6 +40,6 @@ function prompt(msg = "") { // function for reading text
 module.exports = {getChar, readWord, readLine, alert, prompt};
 
 // ******************************************
-// v1.1.0
+// v1.2.0
 // (c) 2021-09-24 alkhizha, s0urce18
 // ******************************************
