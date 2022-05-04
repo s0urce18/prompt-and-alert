@@ -1,3 +1,6 @@
+// ******************************************
+// Code for prompt-and-alert npm package
+// ******************************************
 const fs = require('fs'); // connecting module fs
 const fd = (process.platform === 'win32') ? process.stdin.fd : fs.openSync('/dev/tty', 'rs'); //consfigurating for your OS
 const StringDecoder = require('string_decoder').StringDecoder; // connecting class StringDecoder from module string_decoder
@@ -10,14 +13,18 @@ function getChar() { // function for getting read character's code
     return -1; // return if char isn't read
 }
 
-function readLine(sep = "") { // function for reading line with separating by sep
-    let s = "", char, c, end = "\r\n";
-    while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) != -1); // moving reading start to first not \r or \n  char
+function readWord(end = " \r\n") { // function for reading word to end
+    let s = "", char, c;
+    while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) != -1); // moving reading start to first not \r or \n char
     if (c != -1) s = char; // first char
     while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) == -1) { // reading chars while end char isn't found
         s += char; // adding chars in one string while they aren't run out
     }
-    return sep != "" ? s.split(sep) : s; // if sep != empty string return s separated by sep else return s
+    return s;
+}
+
+function readLine(sep = "") { // function for reading line with possibility of separating with sep
+    return sep != "" ? readWord('\r\n').split(sep).filter(x => x != "") : readWord('\r\n'); // if sep != empty string return readWord('\r\n') separated by sep and else return readWord('\r\n')
 }
 
 function alert(msg = "", withoutN = false) { // function for writing messages, withoutN - will output be checked on having \n at the end
@@ -30,4 +37,9 @@ function prompt(msg = "") {
     return readLine(); // reading line
 }
 
-module.exports = {getChar, readLine, alert, prompt};
+module.exports = {getChar, readWord, readLine, alert, prompt};
+
+// ******************************************
+// v1.0.0
+// (c) 2021-09-24 alkhizha, s0urce18
+// ******************************************
