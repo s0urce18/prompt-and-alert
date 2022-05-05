@@ -1,6 +1,6 @@
-// ******************************************
+// *****************************************
 // Code for prompt-and-alert npm package
-// ******************************************
+// *****************************************
 const fs = require('fs'); // connecting module fs
 const fd = (process.platform === 'win32') ? process.stdin.fd : fs.openSync('/dev/tty', 'rs'); //consfigurating for your OS
 const StringDecoder = require('string_decoder').StringDecoder; // connecting class StringDecoder from module string_decoder
