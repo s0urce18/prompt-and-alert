@@ -4,9 +4,13 @@
 
 ## Встановлення
 
+Введи у термінал (після встановлення `NodeJS`): 
+
 ```console
 npm install prompt-and-alert
 ```
+
+Постав у початок файлу:
 
 ```js
 let alert = require('prompt-and-alert').alert;
@@ -42,9 +46,13 @@ let prompt = require('prompt-and-alert').prompt;
 
 ## Installation
 
+Type to terminal (after installing `NodeJS`):
+
 ```console
 npm install prompt-and-alert
 ```
+
+Put on a start of a file:
 
 ```js
 let alert = require('prompt-and-alert').alert;
@@ -75,3 +83,11 @@ let prompt = require('prompt-and-alert').prompt;
 * **`prompt(msg)`** — reading from console after outputing message to console
 
     `msg` — message, which will be outputed to console
+
+***
+
+***v1.4.0***
+
+***`(c)`*** **2021-05-18** *alkhizha*, *s0urce18*
+
+***
