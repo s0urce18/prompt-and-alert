@@ -62,7 +62,7 @@ let readLine = require('prompt-and-alert').readLine;
 let prompt = require('prompt-and-alert').prompt;
 ```
 
-## Функції
+## Functions
 
 * **`alert(msg, true/false)`** — output to console
     
