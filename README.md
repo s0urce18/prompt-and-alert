@@ -88,6 +88,6 @@ let prompt = require('prompt-and-alert').prompt;
 
 ***v1.5.0***
 
-***`(c)`*** **2022-05-18** *alkhizha*, *s0urce18*
+***`(c)`*** **2022-05-18** *alkhizha*, *s0urce*
 
 ***
