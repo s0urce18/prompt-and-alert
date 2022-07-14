@@ -1,9 +1,9 @@
 {
     "name": "prompt-and-alert",
-    "version": "1.6.0",
+    "version": "2.0.0",
     "author": "_s0urce_",
     "license": "MIT",
-    "description": "Prompt and alert functions",
+    "description": "Functions for working with console input/output",
     "homepage": "https://github.com/s0urcedev/prompt-and-alert",
     "readme": "README.md"
 }
