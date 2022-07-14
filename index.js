@@ -3,8 +3,25 @@
 // *****************************************
 const fs = require('fs'); // connecting module fs
 const fd = (process.platform === 'win32') ? process.stdin.fd : fs.openSync('/dev/tty', 'rs'); //consfigurating for your OS
+const basicEnd = (process.platform === 'win32') ? '\r\n' : '\n';
 const StringDecoder = require('string_decoder').StringDecoder; // connecting class StringDecoder from module string_decoder
 const decoder = new StringDecoder('utf8'); // creating object StringDecoder
+
+function write(text = "", end = "") { // function for writing
+    fs.writeSync(process.stdout.fd, text.toString() + end); // writing
+}
+
+function writeWord(text = "", end = " ") { // function for writing word
+    write(text, end); // calling plain write with end 
+}
+
+function writeLine(text = "") { // function for writing line
+    write(text, basicEnd); // calling plain write with end basicEnd
+}
+
+function alert(msg = "") { // function for writing messages
+    writeLine(msg); // calling writeLine
+}
 
 function getChar() { // function for getting read character's code
     const buf = new Buffer.alloc(1, 0, 'utf8'); // creating object Buffer
@@ -13,9 +30,9 @@ function getChar() { // function for getting read character's code
     return -1; // return if char isn't read
 }
 
-function readWord(end = " \r\n") { // function for reading word to end
+function read(end = ` ${basicEnd}`) { // function for reading to end
     let s = "", char, c;
-    while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) != -1); // moving reading start to first not \r or \n char
+    while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) != -1); // moving reading start to first not end char
     if (c != -1) s = char; // first char
     while ((c = getChar()) != -1 && end.indexOf(char = String.fromCharCode(c)) == -1) { // reading chars while end char isn't found
         s += char; // adding chars in one string while they aren't run out
@@ -23,23 +40,26 @@ function readWord(end = " \r\n") { // function for reading word to end
     return s;
 }
 
-function readLine(sep = "") { // function for reading line with possibility of separating with sep
-    return sep != "" ? readWord('\r\n').split(sep).filter(x => x != "") : readWord('\r\n'); // if sep != empty string return readWord('\r\n') separated by sep and else return readWord('\r\n')
+function readWord(end = ` ${basicEnd}`) { // function for reading word to end
+    return read(end); // returning and calling plain read with end
 }
 
-function alert(msg = "", withoutN = false) { // function for writing messages, withoutN - will output be checked on having \n at the end
-    if (!withoutN && msg != '' && msg[msg.length - 1] != '\n') msg += '\n'; // if withoutN == true and last char of msg not \n add \n
-    fs.writeSync(process.stdout.fd, msg.toString()); // writing
+function readLine(sep = "") { // function for reading line with possibility of separating with sep
+    return sep != "" ? read(basicEnd).split(sep).filter(x => x != "") : read(basicEnd); // if sep != empty string return read(basicEnd) separated by sep and else return read(basicEnd)
+}
+
+function readAll() { // function for reading all stream
+    return read(""); // returning and calling plain read without end
 }
 
 function prompt(msg = "") { // function for reading text
-    alert(msg, true); // writing message
+    write(msg); // writing message
     return readLine(); // reading line
 }
 
-module.exports = {getChar, readWord, readLine, alert, prompt};
+module.exports = {write, writeWord, writeLine, alert, getChar, read, readWord, readLine, readAll, prompt};
 
 // ******************************************
-// v1.5.0
-// (c) 2022-05-18 alkhizha, s0urce
+// v2.0.0
+// (c) 2022-07-14 alkhizha, s0urcedev
 // ******************************************
