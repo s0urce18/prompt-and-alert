@@ -13,34 +13,61 @@ npm install prompt-and-alert
 Постав у початок файлу:
 
 ```js
+let write = require('prompt-and-alert').write;
+let writeWord = require('prompt-and-alert').writeWord;
+let writeLine = require('prompt-and-alert').writeLine;
 let alert = require('prompt-and-alert').alert;
 let getChar = require('prompt-and-alert').getChar;
+let read = require('prompt-and-alert').read;
 let readWord = require('prompt-and-alert').readWord;
 let readLine = require('prompt-and-alert').readLine;
+let readAll = require('prompt-and-alert').readAll;
 let prompt = require('prompt-and-alert').prompt;
 ```
 
 ## Функції
 
-* **`alert(msg, true/false)`** — вивід у коноль
-    
-    `msg` — повідомлення, яке буде виводитися в консоль
+* **`write(text, end)`** — вивід тексту у консоль
 
-    `true/false` — другий аргумент, від якого залежить чи буде ігноруватися закінчення рядка. (`true` – закінчення рядка перевірятися не буде, `false`(за замовченням) – до закінчення буде дописуватися `\n`, якщо його нема)
+    `text` — текст, який буде виведений у консоль
+
+    `end` — кінець виводу
+
+* **`writeWord(text, end)`** — вивід слова у консоль
+
+    `text` — текст, який буде виведений у консоль
+
+    `end` — кінець слова
+
+* **`writeLine(text, end)`** — вивід рядка у консоль
+
+    `text` — текст, який буде виведений у консоль
+
+    `end` — кінець рядка
+
+* **`alert(msg)`** — вивід повідомлення у консоль
+    
+    `msg` — повідомлення, яке буде виводитися у консоль
 
 * **`getChar()`** — отримання char-коду останнього непрочитаного символа
 
+* **`read(end)`** — читання з консолі до кінця
+
+    `end` — кінець
+
 * **`readWord(end)`** — читання останнього непрочитаного слова
 
-    `end` — символи, які розділяють слова. За замовчуванням `" \r\n"`
+    `end` — кінець слова
 
 * **`readLine(sep)`** — читання останнього непрочитаного рядка
 
-    `sep` — символ, який розділяє слова в рядку, по ньому відбувається поділ рядка на масив слів. За замовченням `""` і ділення на масив слів не відбуваєтться
+    `sep` — розділювач, який розділяє слова в рядку, по ньому відбувається поділ рядка на масив слів. При розділювачі `""` ділення на масив слів не відбувається.
 
-* **`prompt(msg)`** — читання з консолі після вивіду в консоль повідомлення
+* **`readAll()`** — читання усьогу потоку з консолі
 
-    `msg` — повідомлення, яке буде виводитися в консоль
+* **`prompt(msg)`** — читання з консолі після вивіду у консоль повідомлення
+
+    `msg` — повідомлення, яке буде виводитися у консоль
 
 # English
 
@@ -55,39 +82,66 @@ npm install prompt-and-alert
 Put on a start of a file:
 
 ```js
+let write = require('prompt-and-alert').write;
+let writeWord = require('prompt-and-alert').writeWord;
+let writeLine = require('prompt-and-alert').writeLine;
 let alert = require('prompt-and-alert').alert;
 let getChar = require('prompt-and-alert').getChar;
+let read = require('prompt-and-alert').read;
 let readWord = require('prompt-and-alert').readWord;
 let readLine = require('prompt-and-alert').readLine;
+let readAll = require('prompt-and-alert').readAll;
 let prompt = require('prompt-and-alert').prompt;
 ```
 
 ## Functions
 
-* **`alert(msg, true/false)`** — output to console
+* **`write(text, end)`** — text output to the console
+
+    `text` — the text that will be output to the console
+
+    `end` — the end of the output
+
+* **`writeWord(text, end)`** — output the word to the console
+
+    `text` — the text that will be output to the console
+
+    `end` — the end of a word
+
+* **`writeLine(text, end)`** — output a line to the console
+
+    `text` — the text that will be output to the console
+
+    `end` — the end of the line
+
+* **`alert(msg)`** — output a message to the console
     
-    `msg` — message, which will be outputed to console
+    `msg` — the message that will be output to the console
 
-    `true/false` — the second argument that determines whether the end of the line will be ignored. (`true` - the end of the line will not be checked,` false` (default) - the end will be added `\n` if it is not)
+* **`getChar()`** — getting the char code of the last unread character
 
-* **`getChar()`** — get char code of last unread symbol
+* **`read(end)`** — reading from the console to the end
 
-* **`readWord(end)`** — reading last unread word
+    `end` — the end
 
-    `end` — characters that separate words. Default `" \r\n"`
+* **`readWord(end)`** - reading the last unread word
 
-* **`readLine(sep)`** — reading last unread line
+    `end` — the end of a word
 
-    `sep` — a character that separates words in a line, it divides the line into an array of words. By default, `""` is not divided into an array of words
+* **`readLine(sep)`** - reading the last unread line
 
-* **`prompt(msg)`** — reading from console after outputing message to console
+    `sep` — the delimiter that separates words in a line, it is used to divide the line into an array. With the separator `""`, division into an array of words does not occur.
 
-    `msg` — message, which will be outputed to console
+* **`readAll()`** — reading the entire stream from the console
+
+* **`prompt(msg)`** - reading from the console after outputting a message to the console
+
+    `msg` — the message that will be output to the console
 
 ***
 
-***v1.5.0***
+***v2.0.0***
 
-***`(c)`*** **2022-05-18** *alkhizha*, *s0urce*
+***`(c)`*** **2022-07-14** *alkhizha*, *s0urcedev*
 
 ***
