@@ -25,9 +25,17 @@ function alert(msg = "") { // function for writing messages
 
 function getChar() { // function for getting read character's code
     const buf = new Buffer.alloc(1, 0, 'utf8'); // creating object Buffer
-    let bytesRead = fs.readSync(fd, buf, 0, 1); // reading and saving length of read bytes
-    if (bytesRead > 0) return decoder.write(buf).charCodeAt(0); // checking is the char read and return it's code in positive way
-    return -1; // return if char isn't read
+    let bytesRead = 0;
+    try { // try to read
+        bytesRead = fs.readSync(fd, buf, 0, 1); // reading and saving length of read bytes
+    }
+    catch(error) { // if any error catched
+        return -1; // return if char isn't read
+    }
+    finally { // in not catched
+        if (bytesRead > 0) return decoder.write(buf).charCodeAt(0); // checking is the char read and return it's code in positive way
+        else return -1; // return if char isn't read
+    }
 }
 
 function read(end = ` ${basicEnd}`) { // function for reading to end
@@ -60,6 +68,6 @@ function prompt(msg = "") { // function for reading text
 module.exports = {write, writeWord, writeLine, alert, getChar, read, readWord, readLine, readAll, prompt};
 
 // ******************************************
-// v2.0.0
-// (c) 2022-07-14 alkhizha, s0urcedev
+// v2.1.0
+// (c) 2022-07-19 alkhizha, s0urcedev
 // ******************************************

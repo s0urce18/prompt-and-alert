@@ -1,6 +1,6 @@
 {
     "name": "prompt-and-alert",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "author": "_s0urce_",
     "license": "MIT",
     "description": "Functions for working with console input/output",

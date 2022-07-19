@@ -140,8 +140,8 @@ let prompt = require('prompt-and-alert').prompt;
 
 ***
 
-***v2.0.0***
+***v2.1.0***
 
-***`(c)`*** **2022-07-14** *alkhizha*, *s0urcedev*
+***`(c)`*** **2022-07-19** *alkhizha*, *s0urcedev*
 
 ***
